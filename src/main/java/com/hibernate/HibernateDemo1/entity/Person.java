@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 
 @Entity // this maps to the table
 // @Table(name="person") can use this if the names are different
-@NamedQuery(name = "find_all_persons", query = "select p from Person p") // this is JPQL
+@NamedQuery(name = "find_all_persons", query = "select p from Person p") // this is JPQL uses the entity rather than a sql query
 public class Person {
 
 	@Id // need to add this because it is a reference to the primary key
