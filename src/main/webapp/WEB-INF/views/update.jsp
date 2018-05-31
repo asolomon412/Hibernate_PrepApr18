@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Update</title>
 </head>
 <body>
 
-	<h1>Add a Person</h1>
-	<form action="addorupdate" method="post">
+	<h1>Update Person</h1>
+	<form action="formupdate" method="post">
 		ID: ${id} <br> 
 		<input type="hidden" name="id" value="${id }"><br> 
 		Name: <input type="text" name="name"><br> 

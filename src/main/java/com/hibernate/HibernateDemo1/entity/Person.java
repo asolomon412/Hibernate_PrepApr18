@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 
 @Entity // this maps to the table
 // @Table(name="person") can use this if the names are different
-@NamedQuery(name="find_all_persons",query="select p from Person p")
+@NamedQuery(name = "find_all_persons", query = "select p from Person p") // this is JPQL
 public class Person {
 
 	@Id // need to add this because it is a reference to the primary key
@@ -19,7 +19,6 @@ public class Person {
 	// @Column(name="name") can use this to map column names if they are different
 	private String name;
 	private String location;
-
 
 	// always need a no argument constructor
 	public Person() {
@@ -32,7 +31,7 @@ public class Person {
 		this.id = id;
 		this.name = name;
 		this.location = location;
-		
+
 	}
 
 	// ********************************//
@@ -40,7 +39,7 @@ public class Person {
 	public Person(String name, String location) {
 		this.name = name;
 		this.location = location;
-		
+
 	}
 
 	public int getId() {
@@ -66,7 +65,6 @@ public class Person {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
 
 	@Override
 	public String toString() {

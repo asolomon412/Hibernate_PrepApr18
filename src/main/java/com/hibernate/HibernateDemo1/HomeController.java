@@ -22,7 +22,7 @@ public class HomeController {
 		return new ModelAndView("index", "list", p.findAll());
 	}
 
-	@RequestMapping("/searchName")
+	@RequestMapping("/search")
 	public ModelAndView formResults(@RequestParam("id") int id) {
 		Person p1 = p.findById(id);
 		if (p1 == null) {
@@ -43,17 +43,23 @@ public class HomeController {
 		return new ModelAndView("index", "list", p.findAll());
 	}
 
-	@RequestMapping(value = "/addorupdate", method = RequestMethod.POST)
-	public ModelAndView addUpdate(@RequestParam("id") int id, @RequestParam("name") String name,
+	@RequestMapping(value = "/formupdate", method = RequestMethod.POST)
+	public ModelAndView addUpdate(@RequestParam("id") int id,
+			@RequestParam("name") String name, @RequestParam(name = "loc", required = false) String loc) {
+
+			Person p1 = new Person(id, name, loc);
+			p.update(p1);
+		
+
+		return new ModelAndView("searchresults", "person", p1);
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public ModelAndView add(@RequestParam("name") String name,
 			@RequestParam(name = "loc", required = false) String loc) {
-		Person p1;
-		if (p.findById(id) == null) {
-			p1 = new Person(name, loc);
-			p.update(p1);
-		} else {
-			p1 = new Person(id, name, loc);
-			p.update(p1);
-		}
+
+		Person p1 = new Person(name, loc);
+		p.update(p1);
 
 		return new ModelAndView("searchresults", "person", p1);
 	}

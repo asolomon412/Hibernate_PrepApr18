@@ -15,7 +15,7 @@
 	<table border="1">
 		<c:forEach var="myVar" items="${list}">
 			<tr>
-				<!-- left out contact title -->
+				
 				<td>${myVar.id}</td>
 				<td>${myVar.name}</td>
 				<td>${myVar.location}</td>
@@ -29,15 +29,15 @@
 	</table>
 	<br>
 	<h1>Search for a Person</h1>
-	<form action="searchName">
+	<form action="search">
 		ID: <input type="number" name="id"> <input type="submit"
 			value="Search">
 	</form>
 
 <br>
 	<h1>Add a Person</h1>
-	<form action="addorupdate" method="post">
-		ID: <input type="number" name="id"> <br> Name: <input
+	<form action="add" method="post">
+		Name: <input
 			type="text" name="name"><br> Location: <input
 			type="text" name="loc"><br> 
 			<input type="submit" class="btn btn-danger"
